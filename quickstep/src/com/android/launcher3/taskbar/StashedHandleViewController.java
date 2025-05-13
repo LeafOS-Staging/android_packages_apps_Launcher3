@@ -17,7 +17,6 @@ package com.android.launcher3.taskbar;
 
 import static android.view.Display.DEFAULT_DISPLAY;
 
-import static com.android.launcher3.taskbar.TaskbarManager.NAVIGATION_BAR_HINT;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_NAV_BAR_HIDDEN;
 
 import android.animation.Animator;
@@ -131,9 +130,7 @@ public class StashedHandleViewController implements TaskbarControllers.LoggableT
                     .getDimensionPixelSize(R.dimen.taskbar_stashed_handle_width);
         }
         int taskbarBottomMargin = deviceProfile.taskbarBottomMargin;
-        mStashedHandleView.getLayoutParams().height =
-                SettingsCache.INSTANCE.get(mActivity).getValue(NAVIGATION_BAR_HINT, 1)
-                ? mTaskbarSize + taskbarBottomMargin : 0;
+        mStashedHandleView.getLayoutParams().height = mTaskbarSize + taskbarBottomMargin;
 
         mTaskbarStashedHandleAlpha.get(ALPHA_INDEX_STASHED).setValue(
                 mActivity.isPhoneGestureNavMode() ? 1 : 0);
